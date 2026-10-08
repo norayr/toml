@@ -27,9 +27,9 @@ buildThis:
 	mkdir -p $(BUILD)
 	cd $(BUILD) && $(VOC) -s $(mkfile_dir_path)/src/TOML.Mod
 
-#tests:
-#	cd $(BUILD) && $(VOC) $(mkfile_dir_path)/test/testopts.Mod -m
-#	build/testopts
+tests:
+	cd $(BUILD) && $(VOC) $(mkfile_dir_path)/test/testTOML.Mod -m
+	cd $(BUILD) && ./testTOML
 
 clean:
 	if [ -d "$(BUILD)" ]; then rm -rf $(BLD); fi

@@ -1,6 +1,6 @@
 # toml
 
-`TOML.Mod`, a TOML reader for [voc](https://github.com/vishaps/voc), the one vipak uses. The same
+`TOML.Mod`, a TOML reader for [voc](https://github.com/vishapoberon/compiler), the one vipak uses. The same
 module is used by polpo for its package recipes (arden); it has no imports, so it compiles
 unchanged with both.
 

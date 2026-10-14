@@ -69,10 +69,10 @@ BEGIN
 END Length;
 
 PROCEDURE ToLower*(VAR s: ARRAY OF CHAR);
-VAR i: INTEGER;
+VAR i: LONGINT;
 BEGIN
   i := 0;
-  WHILE s[i] # 0X DO
+  WHILE (i < LEN(s)) & (s[i] # 0X) DO
     IF (s[i] >= "A") & (s[i] <= "Z") THEN s[i] := CHR(ORD(s[i]) + 20H) END;
     INC(i)
   END
@@ -88,14 +88,14 @@ BEGIN
 END TrimRight;
 
 PROCEDURE TrimLeft*(VAR s: ARRAY OF CHAR);
-VAR i, j, l: INTEGER;
+VAR i, j: LONGINT;
 BEGIN
   i := 0;
-  WHILE (s[i] = " ") OR (s[i] = TAB) DO INC(i) END;
+  WHILE (i < LEN(s)) & ((s[i] = " ") OR (s[i] = TAB)) DO INC(i) END;
   IF i > 0 THEN
-    l := Length(s);
     j := 0;
-    WHILE i <= l DO s[j] := s[i]; INC(i); INC(j) END
+    WHILE (i < LEN(s)) & (s[i] # 0X) DO s[j] := s[i]; INC(i); INC(j) END;
+    s[j] := 0X
   END
 END TrimLeft;
 
